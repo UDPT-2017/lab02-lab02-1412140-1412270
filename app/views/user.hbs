@@ -1,0 +1,50 @@
+
+<div class="container" id="userList">
+	<h2> Danh sach nguoi dung </h2>
+	<ul class="list group">
+		{{#each data.rows}}
+			<li class="list-group-item">
+				{{this.email}} <button id="btnAdd" name="{{this.email}}"> Add </button>
+			</li>
+		{{/each}}
+	</ul>
+</div>
+<div class="container" id="friendList">
+	<h2> Danh sach ban be </h2>
+	<ul class="list group">
+		{{#each data2.rows}}
+			<li class="list-group-item">
+				{{this.friendemail}} <button id="btnRemote" name="{{this.friendemail}}"> Remote </button>
+			</li>
+		{{/each}}
+	</ul>
+</div>
+<script>
+	$(document).ready(function(){
+		$("#btnCheck").click(function(){
+			var ema = $("#email").val();
+		
+			$.get("http://localhost:3000/signin", function() {
+				$("#loginModal").modal('toggle');
+			});
+		});
+		$(function() {
+			$("#btnAdd").click(function() {
+				var id = $(this).attr("name")
+				$.post("http://localhost:3000/addFriend/" + id, function() {
+
+				});
+			});
+		});
+		$(function() {
+			$("#btnRemote").click(function() {
+				var id = $(this).attr("name")
+				$.post("http://localhost:3000/remoteFriend/" + id, function() {
+
+				});
+			});
+		});
+	});
+</script>
+
+

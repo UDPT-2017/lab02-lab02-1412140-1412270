@@ -1,0 +1,65 @@
+
+<div class="container" id="mailList">
+	<h2> Dang sach tin nhan da gui </h2>
+	<ul class="list group">
+		{{#each data.rows}}
+			<li class="list-group-item">
+				<b> Gui den </b> {{this.touser}} 
+				<b> Noi dung </b> {{this.nd}}
+			</li>
+		{{/each}}
+	</ul>
+</div>
+<div class="container" id="friendList">
+	<h2> Dang sach ban be </h2>
+	<ul class="list group">
+		{{#each data2.rows}}
+			<li class="list-group-item">
+				{{this.friendemail}}
+			</li>
+		{{/each}}
+	</ul>
+</div>
+<div class="container" id="mailList2">
+	<h2> Danh sach tin nhan da nhan </h2>
+	<ul class="list group">
+		{{#each data3.rows}}
+			<li class="list-group-item">
+				<b> Nguoi gui </b> {{this.fromuser}}
+				<b> Noi dung </b> {{this.nd}}
+			</li>
+		{{/each}}
+	</ul>
+</div>
+
+<div>
+	<form action="http://localhost:3000/writeMessage" method="POST" enctype="application/x-www-form-urlencoded">
+		<div class="modal fade" id="writeModal" role="dialog" >
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title"> Dang nhap </h4>
+					</div>
+					<div class="modal-body">
+						<form>
+						    <div class="form-group">
+						    	<label for="nickname"> Nguoi nhan: </label>
+						      	<input type="text" class="form-control" name="txtTo" id="nguoiNhan" placeholder="Nhap email nguoi nhan">
+						    </div>
+						    <div class="form-group">
+						      	<label > Noi dung: </label>
+						      	<input type="text" class="form-control" name="txtContent" id="noidung" placeholder="Nhap noi dung">
+						    </div>
+						    <div>
+						    	<input type="submit" name="sbmWr" placeholder="Gui"> 
+						    </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<button type="button" id="writeMessage" class "btn btn-primary" data-toggle="modal" data-target="#writeModal"> Tao moi </button>
+
+
