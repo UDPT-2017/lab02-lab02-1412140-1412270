@@ -3,12 +3,10 @@ var exphbs = require('express-handlebars');
 var app = express();
 var path = require('path');
 var cookie = require('cookie');
-var cookieParser = require('cookie-parser');
+//var cookieParser = require('cookie-parser');
 var parse = require('pg-connection-string').parse;
 
-var config = parse()
-
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(express.static('public'));
 
 app.engine('hbs', exphbs({
