@@ -50,42 +50,6 @@ var userContronller = {
 			return f;
 		});	
 	}
-	addFriend: function(req, res) {
-		var id = req.params.id;
-		pool.connect(function(err, client, done) {
-			if(err) { 
-				return console.error('error fetching client from pool', err);
-			}
-			client.query("INSERT INTO friend(useremail, friendemail) VALUES('" + req.cookies.name + "', '" + id + "')", function(err, result) {
-				done();
-				if(err) {
-					res.end();
-					return console.error('error running query', err);
-				}
-			//	console.log(f.rows[0].friendemail);
-				
-			});
-		});
-		res.redirect(req.get('referer'));
-		console.log(id);
-	}
-	remoteFriend: function(req, res) {
-		var id = req.params.id;
-		pool.connect(function(err, client, done) {
-			if(err) { 
-				return console.error('error fetching client from pool', err);
-			}
-			client.query("DELETE FROM friend WHERE friendemail = '" + id +"' and useremail = '" + req.cookies.name + "'", function(err, result) {
-				done();
-				if(err) {
-					res.end();
-					return console.error('error running query', err);
-				}
-			//	console.log(f.rows[0].friendemail);
-				res.redirect(req.get('referer'));	
-			});
-		});
-	}
 }
 
 module.exports = userContronller;
