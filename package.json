@@ -21,6 +21,7 @@
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
     "hbs": "^4.0.1",
-    "pg": "^6.2.2"
+    "pg": "^6.2.2",
+    "pg-connection-string": "^0.1.3"
   }
 }

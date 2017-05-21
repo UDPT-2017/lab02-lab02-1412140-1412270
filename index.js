@@ -4,6 +4,9 @@ var app = express();
 var path = require('path');
 var cookie = require('cookie');
 var cookieParser = require('cookie-parser');
+var parse = require('pg-connection-string').parse;
+
+var config = parse()
 
 app.use(cookieParser());
 app.use(express.static('public'));
@@ -31,6 +34,11 @@ var config = {
 	max: 10,
 	idleTimeoutMillis: 30000,
 }
+
+if(process.env.DATABASE_URL) {
+	config = parse(process.env.DATABASE_URL);
+}
+
 var pool = new pg.Pool(config);
 var connectionString = 'postgres://postgres:1806Pokemon@localhost:5432/lab2';
 
