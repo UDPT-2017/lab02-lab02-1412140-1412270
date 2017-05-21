@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/UDPT-2017/lab02-lab02-1412140-1412270#readme",
   "dependencies": {
-    "express-handlebars": "^3.0.0"
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "hbs": "^4.0.1",
+    "pg": "^6.2.2"
   }
 }
